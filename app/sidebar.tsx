@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const navigation = [
   { name: "Multistep Wizard", href: "/steps" },
   { name: "Email Client", href: "/email-client" },
+  { name: "Header", href: "/header" },
 ];
 
 function GitHubIcon() {
@@ -29,45 +30,49 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="hidden grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 lg:flex">
-      <div className="flex h-16 shrink-0 items-center">
-        <h2 className="text-2xl font-bold text-indigo-50">Animation Recipes</h2>
-      </div>
-      <nav className="flex flex-1 flex-col">
-        <ul role="list" className="flex flex-1 flex-col gap-y-7">
-          <li>
-            <ul role="list" className="-mx-2 space-y-1">
-              {navigation.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      pathname === item.href
-                        ? "bg-indigo-700 text-white"
-                        : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
-                      "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
+    <div className="relative z-10 hidden lg:block">
+      <div className="fixed flex h-screen w-[300px] grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6">
+        <div className="flex h-16 shrink-0 items-center">
+          <h2 className="text-2xl font-bold text-indigo-50">
+            Animation Recipes
+          </h2>
+        </div>
+        <nav className="flex flex-1 flex-col">
+          <ul role="list" className="flex flex-1 flex-col gap-y-7">
+            <li>
+              <ul role="list" className="-mx-2 space-y-1">
+                {navigation.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        pathname === item.href
+                          ? "bg-indigo-700 text-white"
+                          : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
+                        "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
 
-          <li className="-mx-6 mt-auto">
-            <Link
-              href="https://github.com/md-talim/framer-motion-recipes/"
-              target="_blank"
-              className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-indigo-700"
-            >
-              <GitHubIcon />
-              <span className="sr-only">Repository Link</span>
-              <span aria-hidden="true">Get Code</span>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+            <li className="-mx-6 mt-auto">
+              <Link
+                href="https://github.com/md-talim/framer-motion-recipes/"
+                target="_blank"
+                className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-indigo-700"
+              >
+                <GitHubIcon />
+                <span className="sr-only">Repository Link</span>
+                <span aria-hidden="true">Get Code</span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }
