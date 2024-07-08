@@ -2,7 +2,12 @@
 
 import { cn } from "@/app/utils";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
 import { SVGProps, useState } from "react";
+
+export const metadat: Metadata = {
+  title: "Multistep Wizad",
+};
 
 export default function Page() {
   let [step, setStep] = useState(1);

@@ -8,7 +8,12 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import { Metadata } from "next";
 import { clamp } from "../utils";
+
+export const metadat: Metadata = {
+  title: "News Feed Header",
+};
 
 const useBoundedScroll = (bounds: number) => {
   const { scrollY } = useScroll();

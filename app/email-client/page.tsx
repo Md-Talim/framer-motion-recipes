@@ -2,7 +2,12 @@
 
 import * as Icons from "@heroicons/react/24/outline";
 import { AnimatePresence, motion } from "framer-motion";
+import { Metadata } from "next";
 import { useCallback, useEffect, useState } from "react";
+
+export const metadat: Metadata = {
+  title: "Email Client",
+};
 
 let titles: [string, string][] = [
   ["Apple's newest iPhone is here", "Watch our July event"],
