@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 import { clamp } from "../utils";
 
-function useBoundedScroll(bounds: number) {
+const useBoundedScroll = (bounds: number) => {
   const { scrollY } = useScroll();
   let scrollYBounded = useMotionValue(0);
   let scrollYBoundedProgress = useTransform(
@@ -28,7 +28,7 @@ function useBoundedScroll(bounds: number) {
   });
 
   return { scrollYBounded, scrollYBoundedProgress };
-}
+};
 
 export default function Header() {
   const { scrollYBoundedProgress } = useBoundedScroll(100);
